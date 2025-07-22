@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Candle Blow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  </head>
+  <body>
+    <!-- Instruction Modal -->
+    <div class="instruction-modal" id="instructionModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>🎂 Birthday Celebration Guide 🎂</h2>
+        <ol>
+          <li>🎤 Blow into your microphone to extinguish candles</li>
+          <li>✨ Enjoy the surprises that appear</li>
+          <li>📜 Click the tab above footer for messages</li>
+        </ol>
+        <div class="permission-buttons">
+          <button id="allowMic" class="modal-btn">Allow Microphone</button>
+          <button id="declineMic" class="modal-btn decline">
+            Continue Without Mic
+          </button>
+        </div>
+        <p>Made with love by Clarence</p>
+      </div>
+    </div>
+
+    <!-- Instruction Button with Tooltip -->
+    <div class="instruction-button" id="instructionButton">
+      <div class="tooltip">Click for instructions</div>
+      ?
+    </div>
+
+    <!-- Floating Tooltip for Messages -->
+    <div class="floating-tooltip" id="floatingTooltip"></div>
+
+    <div class="candle-count-display">
+      <span class="letter">🎉</span>
+      <span class="letter">H</span>
+      <span class="letter">a</span>
+      <span class="letter">p</span>
+      <span class="letter">p</span>
+      <span class="letter">y</span>
+      <span class="letter">&nbsp;</span>
+      <span class="letter">7</span>
+      <span class="letter">t</span>
+      <span class="letter">h</span>
+      <span class="letter">&nbsp;</span>
+      <span class="letter">B</span>
+      <span class="letter">i</span>
+      <span class="letter">r</span>
+      <span class="letter">t</span>
+      <span class="letter">h</span>
+      <span class="letter">d</span>
+      <span class="letter">a</span>
+      <span class="letter">y</span>
+      <span class="letter">&nbsp;</span>
+      <span class="letter">J</span>
+      <span class="letter">A</span>
+      <span class="letter">Y</span>
+      <span class="letter">D</span>
+      <span class="letter">A</span>
+      <span class="letter">A</span>
+      <span class="letter">🎂</span>
+    </div>
+    <div class="cake">
+      <div id="candleCount" style="display: none"></div>
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="icing"></div>
+      <div class="drip drip1"></div>
+      <div class="drip drip2"></div>
+      <div class="drip drip3"></div>
+      <!-- Fairy Lights Container -->
+      <div class="fairy-lights" id="fairyLights"></div>
+    </div>
+
+    <!-- Gift Box (Original Design) -->
+    <div class="gift-box-container" id="giftBoxContainer">
+      <div class="gift-box" id="giftBox">
+        <div class="gift-lid"></div>
+        <div class="gift-body"></div>
+        <div class="gift-content">
+          <div class="roses-bouquet"></div>
+          <div class="gift-message">Happy 7th birthday Bossing &lt;3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Super Junior Mascot -->
+    <div class="mascot-container" id="mascotContainer">
+      <div class="mascot" id="mascot">
+        <div class="mascot-tooltip" id="mascotTooltip">Happy Birthday! 💙</div>
+      </div>
+    </div>
+
+    <!-- Birthday Letters Tab - Positioned above footer -->
+    <div class="birthday-letters-tab" id="birthdayLettersTab">
+      Birthday Letters
+    </div>
+
+    <div class="notes-container" id="notesContainer">
+      <div class="notes-overlay" id="notesOverlay"></div>
+      <div class="notes-panel">
+        <button class="notes-close">&times;</button>
+        <div class="notes-content">
+          <div class="note yellow-note active">
+            <div class="note-inner">
+              <div class="note-paper">
+                <div class="note-header">Happy Birthday Bossing!</div>
+                <div class="note-text">
+                  Happy birthday Bossing! More birthdays to come! I hope you
+                  have a very fun and happy day full of smiles and blessings.
+                  Always enjoy what you do and have fun every day. Kuya Clarence
+                  loves you!
+                </div>
+                <div class="note-signature">From: Kuya Clarence &lt;3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Developed By: Clarence &nbsp; | &nbsp; Made with
+      <svg
+        class="heart"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+          fill="#ff6999"
+        ></path>
+      </svg>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
