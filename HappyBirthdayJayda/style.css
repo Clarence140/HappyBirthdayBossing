@@ -1,7 +1,5 @@
-/* Import Fredoka One font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&display=swap");
 
-/* Body with pastel gradient background */
 body {
   background: linear-gradient(135deg, #ffd6e0 0%, #e2c3ff 100%);
   margin: 0;
@@ -10,7 +8,6 @@ body {
   font-family: "Fredoka One", cursive;
 }
 
-/* Floating Tooltip Styling */
 .floating-tooltip {
   position: fixed;
   top: 20px;
@@ -37,13 +34,12 @@ body {
   transform: translateX(-50%) translateY(10px);
 }
 
-/* Enhanced birthday message with dancing letters */
 .candle-count-display {
   text-align: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
   margin-bottom: 20px;
   font-family: "Fredoka One", cursive;
-  font-size: clamp(24px, 5vw, 40px);
+  font-size: clamp(20px, 5vw, 40px);
   font-weight: bold;
   width: fit-content;
   margin-left: auto;
@@ -54,7 +50,7 @@ body {
   position: relative;
   overflow: visible;
   padding: 0 10px;
-  white-space: nowrap; /* Add this to prevent wrapping */
+  white-space: nowrap;
 }
 
 .candle-count-display.fade-in {
@@ -73,123 +69,6 @@ body {
   animation-delay: calc(var(--i) * 0.1s);
 }
 
-.letter:nth-child(1) {
-  --i: 0;
-}
-.letter:nth-child(2) {
-  --i: 1;
-}
-.letter:nth-child(3) {
-  --i: 2;
-}
-.letter:nth-child(4) {
-  --i: 3;
-}
-.letter:nth-child(5) {
-  --i: 4;
-}
-.letter:nth-child(6) {
-  --i: 5;
-}
-.letter:nth-child(7) {
-  --i: 6;
-}
-.letter:nth-child(8) {
-  --i: 7;
-}
-.letter:nth-child(9) {
-  --i: 8;
-}
-.letter:nth-child(10) {
-  --i: 9;
-}
-.letter:nth-child(11) {
-  --i: 10;
-}
-.letter:nth-child(12) {
-  --i: 11;
-}
-.letter:nth-child(13) {
-  --i: 12;
-}
-.letter:nth-child(14) {
-  --i: 13;
-}
-.letter:nth-child(15) {
-  --i: 14;
-}
-.letter:nth-child(16) {
-  --i: 15;
-}
-.letter:nth-child(17) {
-  --i: 16;
-}
-.letter:nth-child(18) {
-  --i: 17;
-}
-.letter:nth-child(19) {
-  --i: 18;
-}
-.letter:nth-child(20) {
-  --i: 19;
-}
-.letter:nth-child(21) {
-  --i: 20;
-}
-.letter:nth-child(22) {
-  --i: 21;
-}
-.letter:nth-child(23) {
-  --i: 22;
-}
-.letter:nth-child(24) {
-  --i: 23;
-}
-.letter:nth-child(25) {
-  --i: 24;
-}
-.letter:nth-child(26) {
-  --i: 25;
-}
-.letter:nth-child(27) {
-  --i: 26;
-}
-.letter:nth-child(28) {
-  --i: 27;
-}
-
-.letter::before {
-  content: attr(data-letter);
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(135, 206, 235, 0.3)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  z-index: -1;
-  filter: blur(1px);
-}
-
-@media (max-width: 600px) {
-  .candle-count-display {
-    font-size: clamp(18px, 6vw, 24px); /* Adjusted for better fit */
-    letter-spacing: -1px; /* Reduce spacing between letters */
-    padding: 0 5px; /* Reduce padding */
-    overflow: hidden; /* Hide any overflow */
-  }
-
-  .letter {
-    display: inline-block;
-    animation: none !important; /* Disable animation on mobile if needed */
-    margin-right: -2px; /* Reduce space between letters */
-  }
-}
-
 @keyframes dance {
   0%,
   100% {
@@ -206,21 +85,20 @@ body {
   }
 }
 
-/* Cake styling */
 .cake {
   position: relative;
-  width: clamp(200px, 50vw, 250px);
-  height: clamp(160px, 40vw, 200px);
+  width: clamp(150px, 70vw, 250px);
+  height: clamp(120px, 60vw, 200px);
   margin: 0 auto;
-  margin-top: 15vh;
+  margin-top: 10vh;
   cursor: pointer;
 }
 
 .plate {
-  width: clamp(216px, 54vw, 270px);
-  height: clamp(88px, 22vw, 110px);
+  width: clamp(170px, 80vw, 270px);
+  height: clamp(70px, 35vw, 110px);
   position: absolute;
-  bottom: -10px;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #ccc;
@@ -236,24 +114,23 @@ body {
   position: absolute;
   display: block;
   width: 100%;
-  height: clamp(80px, 20vw, 100px);
+  height: clamp(60px, 30vw, 100px);
   border-radius: 50%;
   background-color: #ffb6c1;
   box-shadow: 0 2px 0px #ff8fab, 0 4px 0px #ffb3c6, 0 6px 0px #ffb3c6,
     0 8px 0px #ffb3c6, 0 10px 0px #ffb3c6, 0 12px 0px #ffb3c6,
     0 14px 0px #ffb3c6, 0 16px 0px #ffb3c6, 0 18px 0px #ffb3c6,
-    0 20px 0px #ffb3c6, 0 22px 0px #ffb3c6, 0 24px 0px #ffb3c6,
-    0 26px 0px #ffb3c6, 0 28px 0px #ffb3c6, 0 30px 0px #ffb3c6;
+    0 20px 0px #ffb3c6;
 }
 
 .layer-top {
   top: 0px;
 }
 .layer-middle {
-  top: clamp(26px, 6.6vw, 33px);
+  top: clamp(20px, 10vw, 33px);
 }
 .layer-bottom {
-  top: clamp(53px, 13.2vw, 66px);
+  top: clamp(40px, 20vw, 66px);
 }
 
 .icing {
@@ -261,7 +138,7 @@ body {
   left: 5px;
   background-color: #f0e4d0;
   width: calc(100% - 10px);
-  height: clamp(72px, 18vw, 90px);
+  height: clamp(50px, 25vw, 90px);
   border-radius: 50%;
 }
 
@@ -280,42 +157,42 @@ body {
 
 .drip {
   display: block;
-  width: clamp(40px, 10vw, 50px);
-  height: clamp(48px, 12vw, 60px);
+  width: clamp(30px, 15vw, 50px);
+  height: clamp(35px, 18vw, 60px);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   background-color: #f0e4d0;
 }
 
 .drip1 {
-  top: clamp(42px, 10.6vw, 53px);
+  top: clamp(30px, 15vw, 53px);
   left: 5px;
   transform: skewY(15deg);
-  height: clamp(38px, 9.6vw, 48px);
-  width: clamp(32px, 8vw, 40px);
+  height: clamp(28px, 14vw, 48px);
+  width: clamp(24px, 12vw, 40px);
 }
 
 .drip2 {
-  top: clamp(55px, 13.8vw, 69px);
+  top: clamp(40px, 20vw, 69px);
   right: 5px;
   transform: skewY(-15deg);
 }
 
 .drip3 {
-  top: clamp(43px, 10.8vw, 54px);
+  top: clamp(30px, 15vw, 54px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(64px, 16vw, 80px);
+  width: clamp(50px, 25vw, 80px);
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
 }
 
 .candle {
   background-color: #7b020b;
-  width: 12px;
-  height: 35px;
+  width: clamp(8px, 4vw, 12px);
+  height: clamp(25px, 12vw, 35px);
   border-radius: 6px / 3px;
-  top: -20px;
+  top: -15px;
   z-index: 10;
   position: absolute;
 }
@@ -325,7 +202,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 12px;
+  width: 100%;
   height: 6px;
   border-radius: 50%;
   background-color: #ad030f;
@@ -338,12 +215,12 @@ body {
 .flame {
   position: absolute;
   background-color: orange;
-  width: 10px;
-  height: 25px;
+  width: clamp(6px, 3vw, 10px);
+  height: clamp(15px, 8vw, 25px);
   border-radius: 8px 8px 8px 8px / 20px 20px 8px 8px;
-  top: -34px;
+  top: -25px;
   left: 50%;
-  margin-left: -5px;
+  margin-left: -3px;
   z-index: 10;
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5),
     0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
@@ -379,7 +256,6 @@ body {
   }
 }
 
-/* Fairy Lights */
 .fairy-lights {
   position: absolute;
   width: 100%;
@@ -414,7 +290,6 @@ body {
   animation: twinkle 0.5s infinite alternate;
 }
 
-/* Gift Box (Original Design Restored) */
 .gift-box-container {
   position: fixed;
   bottom: 20%;
@@ -517,11 +392,10 @@ body {
   line-height: 1.2;
 }
 
-/* Super Junior Mascot */
 .mascot-container {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* Changed from right: 20px to left: 20px */
+  left: 20px;
   z-index: 50;
 }
 
@@ -537,10 +411,9 @@ body {
   position: relative;
 }
 
-/* Enhanced Mascot Tooltip */
 .mascot-tooltip {
   position: absolute;
-  bottom: 80%; /* Changed from 100% to 80% to be near the head */
+  bottom: 80%;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
@@ -558,7 +431,7 @@ body {
   transition: all 0.3s ease-in-out;
   pointer-events: none;
   z-index: 1000;
-  margin-bottom: 5px; /* Reduced margin */
+  margin-bottom: 5px;
 }
 
 .mascot-tooltip::after {
@@ -590,7 +463,6 @@ body {
   }
 }
 
-/* Instruction Modal */
 .instruction-modal {
   display: flex;
   position: fixed;
@@ -686,11 +558,10 @@ body {
   transform: scale(1.2);
 }
 
-/* Instruction Button */
 .instruction-button {
   position: fixed;
   bottom: 20px;
-  right: 20px; /* Changed from left: 20px to right: 20px */
+  right: 20px;
   width: clamp(35px, 8vw, 40px);
   height: clamp(35px, 8vw, 40px);
   background-color: #6a1b9a;
@@ -732,7 +603,6 @@ body {
   opacity: 1;
 }
 
-/* Birthday Letters Tab - Positioned on the right side of screen */
 .birthday-letters-tab {
   position: fixed;
   top: 50%;
@@ -772,7 +642,6 @@ body {
   }
 }
 
-/* Perfect Square Notes Container */
 .notes-container {
   position: fixed;
   top: 0;
@@ -835,25 +704,10 @@ body {
   transform: scale(1.2);
 }
 
-/* Perfect Square Notes Content */
 .notes-content {
   position: relative;
   padding: 5px;
   transition: transform 0.2s;
-}
-
-.notes-close:hover {
-  transform: scale(1.2);
-}
-
-/* Perfect Square Notes Content */
-.notes-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .note {
@@ -907,16 +761,6 @@ body {
   border: 2px dashed #ffd600;
 }
 
-.pink-note .note-paper {
-  background-color: #f8bbd0;
-  border: 2px dashed #ff4081;
-}
-
-.skyblue-note .note-paper {
-  background-color: #b3e5fc;
-  border: 2px dashed #03a9f4;
-}
-
 .note-header {
   font-size: clamp(16px, 4vw, 20px);
   font-weight: bold;
@@ -940,43 +784,6 @@ body {
   margin-top: clamp(8px, 2vw, 12px);
 }
 
-/* Navigation Buttons */
-.nav-btn {
-  position: absolute;
-  background-color: #6a1b9a;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: clamp(35px, 9vw, 45px);
-  height: clamp(35px, 9vw, 45px);
-  font-size: clamp(16px, 4vw, 22px);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s, transform 0.2s;
-  z-index: 1502;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.prev-btn {
-  left: clamp(-50px, -12vw, -60px);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.next-btn {
-  right: clamp(-50px, -12vw, -60px);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-btn:hover {
-  background-color: #9c27b0;
-  transform: translateY(-50%) scale(1.1);
-}
-
-/* Footer */
 .footer {
   position: fixed;
   left: 0;
@@ -994,7 +801,6 @@ body {
   z-index: 10;
 }
 
-/* Heart icon animation */
 .heart {
   animation: blink 1s linear infinite;
   width: clamp(14px, 3.5vw, 16px);
@@ -1014,12 +820,10 @@ body {
   }
 }
 
-/* Prevent body scrolling when notes are open */
 body.no-scroll {
   overflow: hidden;
 }
 
-/* Test button styling */
 .test-btn {
   position: fixed;
   bottom: clamp(50px, 12vw, 70px);
@@ -1042,7 +846,33 @@ body.no-scroll {
   background-color: #9c27b0;
 }
 
-/* Additional Mobile Optimizations */
+body.blowing::after {
+  content: "💨";
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  opacity: 0.7;
+  animation: blow-feedback 0.5s ease-out;
+  z-index: 1000;
+}
+
+@keyframes blow-feedback {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.7;
+  }
+}
+
 @media (max-width: 480px) {
   .instruction-button {
     bottom: 80px;
@@ -1074,7 +904,6 @@ body.no-scroll {
   }
 }
 
-/* Landscape Mobile Optimization */
 @media (max-height: 500px) and (orientation: landscape) {
   .candle-count-display {
     margin-top: 5vh;
@@ -1091,15 +920,9 @@ body.no-scroll {
   }
 }
 
-/* High DPI Displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .letter {
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
       1px 1px 0 white, 0 0 5px rgba(135, 206, 235, 0.5);
   }
 }
-
-/* Remove all butterfly styles */
-/* .butterfly { ... } */
-/* @keyframes float { ... } */
-/* @keyframes flap { ... } */
