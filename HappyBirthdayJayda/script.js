@@ -28,11 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const confetti = window.confetti;
   let candleCount = 0;
   let micAllowed = false;
+  let celebrationTriggered = false;
 
   // Initialize
   createFairyLights();
   addInitialCandles();
   initMascotTooltip();
+  setupNotesModal();
 
   // Show instructions on first load
   setTimeout(() => {
@@ -93,8 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   declineMicBtn.addEventListener("click", () => {
     micAllowed = false;
     closeInstructionModal();
-
-    // Add test button immediately
     setTimeout(() => {
       addTestButton();
       showTooltip(
@@ -234,30 +234,37 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCandleCount();
       }
 
-      if (candles.every((candle) => candle.classList.contains("out"))) {
-        setTimeout(() => {
-          triggerConfetti();
-          endlessConfetti();
-          birthdayMessage.classList.add("fade-in");
-          activateFairyLights();
-          showGiftBox();
-          showMascotTooltip();
-
-          setTimeout(() => {
-            birthdayLettersTab.classList.add("visible");
-          }, 3000);
-        }, 200);
-
-        // Play audio with error handling
-        audio.play().catch((error) => {
-          console.log("Audio play failed:", error);
-        });
+      if (
+        candles.every((candle) => candle.classList.contains("out")) &&
+        !celebrationTriggered
+      ) {
+        celebrationTriggered = true;
+        triggerCelebration();
       }
     }
   }
 
+  function triggerCelebration() {
+    setTimeout(() => {
+      triggerConfetti();
+      endlessConfetti();
+      birthdayMessage.classList.add("fade-in");
+      activateFairyLights();
+      showGiftBox();
+      showMascotTooltip();
+
+      setTimeout(() => {
+        birthdayLettersTab.classList.add("visible");
+      }, 3000);
+    }, 200);
+
+    // Play audio with error handling
+    audio.play().catch((error) => {
+      console.log("Audio play failed:", error);
+    });
+  }
+
   function addTestButton() {
-    // Check if test button already exists
     if (document.querySelector(".test-btn")) return;
 
     const testBtn = document.createElement("button");
@@ -265,74 +272,60 @@ document.addEventListener("DOMContentLoaded", () => {
     testBtn.className = "test-btn";
 
     testBtn.addEventListener("click", () => {
-      // Blow out all candles immediately
       candles.forEach((candle) => {
         candle.classList.add("out");
       });
 
       updateCandleCount();
 
-      // Trigger celebration sequence
-      setTimeout(() => {
-        triggerConfetti();
-        endlessConfetti();
-        birthdayMessage.classList.add("fade-in");
-        activateFairyLights();
-        showGiftBox();
-        showMascotTooltip();
+      if (!celebrationTriggered) {
+        celebrationTriggered = true;
+        triggerCelebration();
+      }
 
-        // Show Birthday Letters tab after 3 seconds
-        setTimeout(() => {
-          birthdayLettersTab.classList.add("visible");
-        }, 3000);
-      }, 500);
-
-      // Play audio with error handling
       audio.play().catch((error) => {
         console.log("Audio play failed:", error);
       });
 
-      // Remove test button after use
       testBtn.remove();
     });
 
     document.body.appendChild(testBtn);
   }
 
-  function openNotes() {
-    notesContainer.classList.add("open");
-    document.body.classList.add("no-scroll");
-  }
-
-  function closeNotes() {
-    notesContainer.classList.remove("open");
-    document.body.classList.remove("no-scroll");
-  }
-
-  // Birthday Letters Tab Event Listeners
-  birthdayLettersTab.addEventListener("click", (e) => {
-    e.stopPropagation();
-    openNotes();
-  });
-
-  notesClose.addEventListener("click", (e) => {
-    e.stopPropagation();
-    closeNotes();
-  });
-
-  // Click outside to close notes
-  notesOverlay.addEventListener("click", (e) => {
-    if (e.target === notesOverlay) {
-      closeNotes();
+  function setupNotesModal() {
+    function openNotes() {
+      notesContainer.classList.add("open");
+      document.body.classList.add("no-scroll");
     }
-  });
 
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && notesContainer.classList.contains("open")) {
-      closeNotes();
+    function closeNotes() {
+      notesContainer.classList.remove("open");
+      document.body.classList.remove("no-scroll");
     }
-  });
+
+    birthdayLettersTab.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openNotes();
+    });
+
+    notesClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeNotes();
+    });
+
+    notesOverlay.addEventListener("click", (e) => {
+      if (e.target === notesOverlay) {
+        closeNotes();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && notesContainer.classList.contains("open")) {
+        closeNotes();
+      }
+    });
+  }
 });
 
 function triggerConfetti() {
@@ -373,7 +366,7 @@ function endlessConfetti() {
 function initMascotTooltip() {
   const messages = [
     "Happy Birthday! 💙",
-    "Enjoy your day po! ✨",
+    "Enjoy your day bossing! ✨",
     "Enjoy every moment! 💖",
     "You deserve all the good things!🌟",
     "Make a wish! 🌟",
@@ -383,10 +376,8 @@ function initMascotTooltip() {
   const tooltip = document.querySelector(".mascot-tooltip");
   let messageIndex = 0;
 
-  // Cycle through messages every 4 seconds
   setInterval(() => {
     messageIndex = (messageIndex + 1) % messages.length;
     tooltip.textContent = messages[messageIndex];
   }, 4000);
 }
-// Commit
